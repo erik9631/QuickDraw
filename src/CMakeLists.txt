@@ -23,13 +23,18 @@ set(ui_component_api
         Backend/Api/CoreApiConcept.h
 )
 
-add_executable(${PROJECT_NAME}_playground main.cpp
+set (all_files
         ${backend}
         ${backend_headers}
         ${ui_component}
         ${ui_component_headers}
         ${ui_component_api}
 )
+
+add_executable(${PROJECT_NAME}_playground main.cpp ${all_files}
+)
+
+add_library(${PROJECT_NAME} STATIC ${all_files})
 
 target_link_libraries(${PROJECT_NAME}_playground PUBLIC glm)
 include_directories(
