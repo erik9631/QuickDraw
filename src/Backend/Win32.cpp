@@ -70,7 +70,7 @@ std::unique_ptr<ui::component::Win32Window> _CreateCore(const glm::vec3& pos, co
     }
     win32Window->core.windowHandle = CreateWindow(
         win32Window->core.windowClass.lpszClassName, win32Window->core.windowClass.lpszClassName,
-        WS_OVERLAPPEDWINDOW , pos.x, pos.y, size.x, size.y, nullptr, nullptr, hInstance, nullptr
+        WS_THICKFRAME , pos.x, pos.y, size.x, size.y, nullptr, nullptr, hInstance, nullptr
         );
 
     if (!win32Window->core.windowHandle)

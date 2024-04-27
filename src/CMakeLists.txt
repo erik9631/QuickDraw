@@ -23,20 +23,33 @@ set(ui_component_api
         Backend/Api/CoreApiConcept.h
 )
 
-set (all_files
-        ${backend}
+set (all_headers
         ${backend_headers}
-        ${ui_component}
         ${ui_component_headers}
         ${ui_component_api}
 )
 
-add_executable(${PROJECT_NAME}_playground main.cpp ${all_files}
+set (all_sources
+        ${backend}
+        ${ui_component}
+        ${ui_component_api}
 )
 
-add_library(${PROJECT_NAME} STATIC ${all_files})
+set (all_files
+        ${all_headers}
+        ${all_sources}
+)
 
+add_executable(${PROJECT_NAME}_playground main.cpp ${all_files}
+)
 target_link_libraries(${PROJECT_NAME}_playground PUBLIC glm)
+
+
+add_library(${PROJECT_NAME} STATIC ${all_files})
+target_link_libraries(${PROJECT_NAME} PUBLIC glm)
+
+target_include_directories(${PROJECT_NAME} INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
+
 include_directories(
         .
 )

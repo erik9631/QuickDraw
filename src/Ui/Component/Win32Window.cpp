@@ -15,3 +15,7 @@ void ui::component::Win32Window::SetPosition(const glm::vec3 &position, bool emi
 void ui::component::Win32Window::SetSize(const glm::vec3 &size, bool emit) {
     element.size = size;
 }
+
+void ui::component::Win32Window::SetName(const std::string& name, bool emit) {
+    element.name = name;
+}

@@ -5,11 +5,13 @@
 #ifndef ELEMENT_H
 #define ELEMENT_H
 #include <glm.hpp>
+#include <string>
 
 namespace ui::component{
     struct Element{
         glm::vec3 position = {};
         glm::vec3 size = {};
+        std::string name = {};
     };
 
 }

@@ -16,6 +16,7 @@ namespace ui::component{
         [[nodiscard]] const Element & GetElement() const override;
         void SetPosition(const glm::vec3 & position, bool emit = true) override;
         void SetSize(const glm::vec3 & size, bool emit = true) override;
+        void SetName(const std::string& name, bool emit = true) override;
         ~Win32Window() override {
         }
     };
