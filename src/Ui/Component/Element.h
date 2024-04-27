@@ -6,9 +6,13 @@
 #define ELEMENT_H
 #include <glm.hpp>
 #include <string>
+#include <vector>
+
+#include "SizeChangedSubscriber.h"
 
 namespace ui::component{
     struct Element{
+        std::vector<api::SizeChangedSubscriber*> sizeChangedSubscribers = {};
         glm::vec3 position = {};
         glm::vec3 size = {};
         std::string name = {};

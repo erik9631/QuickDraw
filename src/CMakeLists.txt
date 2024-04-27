@@ -11,6 +11,7 @@ set(backend_headers
 
 set (ui_component
         Ui/Component/Win32Window.cpp
+        Ui/Component/utils.h
 )
 
 set(ui_component_headers
@@ -21,6 +22,8 @@ set(ui_component_headers
 set(ui_component_api
         Ui/Component/api/ElementApi.h
         Backend/Api/CoreApiConcept.h
+        Ui/Component/Api/SizeChangedSubscriber.h
+        Ui/Component/Api/PositionChangedSubscriber.h
 )
 
 set (all_headers
