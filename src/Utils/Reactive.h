@@ -34,7 +34,38 @@ namespace utils{
         Reactive& operator+=(U newVal) {
             val += newVal;
             for (auto& subscriber : subscribers) {
-                subscriber(val, std::make_any<T*>(&src));
+                auto anyType = std::make_any<K*>(&src);
+                subscriber(val, anyType);
+            }
+            return *this;
+        }
+
+        template <typename U>
+        Reactive& operator-=(U newVal) {
+            val -= newVal;
+            for (auto& subscriber : subscribers) {
+                auto anyType = std::make_any<K*>(&src);
+                subscriber(val, anyType);
+            }
+            return *this;
+        }
+
+        template <typename U>
+        Reactive& operator*=(U newVal) {
+            val *= newVal;
+            for (auto& subscriber : subscribers) {
+                auto anyType = std::make_any<K*>(&src);
+                subscriber(val, anyType);
+            }
+            return *this;
+        }
+
+        template <typename U>
+        Reactive& operator/=(U newVal) {
+            val /= newVal;
+            for (auto& subscriber : subscribers) {
+                auto anyType = std::make_any<K*>(&src);
+                subscriber(val, anyType);
             }
             return *this;
         }

@@ -6,6 +6,7 @@
 #include "Win32.h"
 #include <iostream>
 #include <mutex>
+#include <condition_variable>
 
 #if defined(_M_X64)
 #define USER_DATA (GWLP_USERDATA)

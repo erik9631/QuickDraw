@@ -17,9 +17,41 @@ TEST_CASE("Win32Window test", "[Win32Window test]") {
 }
 
 TEST_CASE("Reactive test basic", "[ReactiveTestBasic]"){
-    auto intReactive = utils::Reactive<int>(0);
-    intReactive.subscribers.emplace_back([](int value, std::any& src){
-        CHECK(value == 5);
-    });
-    intReactive = 5;
+    auto intReactive = utils::Reactive(100);
+    SECTION("Assingment test"){
+        intReactive.subscribers.emplace_back([](int value, std::any& src){
+                CHECK(value == 5);
+        });
+        intReactive = 5;
+    }
+
+    SECTION("Addition test"){
+        intReactive.subscribers.emplace_back([](int value, std::any& src){
+            CHECK(value == 105);
+        });
+        intReactive += 5;
+    }
+
+    SECTION("Addition test"){
+        intReactive.subscribers.emplace_back([](int value, std::any& src){
+            CHECK(value == 50);
+        });
+        intReactive -= 50;
+    }
+
+    SECTION("Addition test"){
+        intReactive.subscribers.emplace_back([](int value, std::any& src){
+            CHECK(value == 200);
+        });
+        intReactive *= 2;
+    }
+
+    SECTION("Addition test"){
+        intReactive.subscribers.emplace_back([](int value, std::any& src){
+            CHECK(value == 25);
+        });
+        intReactive /= 4;
+    }
+
+
 }
