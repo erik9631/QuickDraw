@@ -6,6 +6,7 @@
 #define WINDOW_H
 #include "Api/ElementApi.h"
 #include "Backend/Win32Core.h"
+#include "Ui/Component/Api/PositionChangedSubscriber.h"
 #include <iostream>
 
 namespace ui::component{
@@ -13,6 +14,8 @@ namespace ui::component{
         Element element = {};
     public:
         backend::Win32Core core = {};
+        std::vector<api::SizeChangedSubscriber> sizeChangedSubscribers = {};
+        std::vector<api::PositionChangedSubscriber> positionChangedSubscribers = {};
         [[nodiscard]] const Element & GetElement() const override;
         void SetPosition(const glm::vec3 & position, bool emit = true) override;
         void SetSize(const glm::vec3 & size, bool emit = true) override;

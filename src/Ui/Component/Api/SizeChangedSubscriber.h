@@ -6,12 +6,8 @@
 #define SIZECHANGEDSUBSCRIBER_H
 #include <glm.hpp>
 #include <any>
-
+#include <functional>
 namespace ui::component::api {
-    class SizeChangedSubscriber {
-    public:
-        virtual void OnSizeChanged(const glm::vec3& size, std::any& src) = 0;
-        virtual ~SizeChangedSubscriber() = default;
-    };
+    typedef std::function<void (const glm::vec3&, std::any&)> SizeChangedSubscriber;
 }
 #endif //SIZECHANGEDSUBSCRIBER_H

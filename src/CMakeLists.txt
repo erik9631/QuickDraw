@@ -26,16 +26,26 @@ set(ui_component_api
         Ui/Component/Api/PositionChangedSubscriber.h
 )
 
+set(utils_headers
+        Utils/Reactive.h
+)
+
+set(utils
+
+)
+
 set (all_headers
         ${backend_headers}
         ${ui_component_headers}
         ${ui_component_api}
+        ${utils_headers}
 )
 
 set (all_sources
         ${backend}
         ${ui_component}
         ${ui_component_api}
+        ${utils}
 )
 
 set (all_files

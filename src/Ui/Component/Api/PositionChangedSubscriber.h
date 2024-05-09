@@ -7,14 +7,8 @@
 #include <any>
 #include <glm.hpp>
 
-
-
 namespace ui::component::api {
-    class PositionChangedSubscriber {
-    public:
-        virtual void OnSizeChanged(const glm::vec3& size, std::any& src) = 0;
-        virtual ~PositionChangedSubscriber() = default;
-    };
+    typedef std::function<void (const glm::vec3&, std::any&)> PositionChangedSubscriber;
 }
 
 

@@ -8,7 +8,7 @@
 #include <string>
 #include <vector>
 
-#include "SizeChangedSubscriber.h"
+#include "Ui/Component/Api/SizeChangedSubscriber.h"
 
 namespace ui::component{
     struct Element{
